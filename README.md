@@ -8,22 +8,52 @@ To write a program to find the solution of a matrix using Gaussian Elimination.
 2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+Step 1:
+Import numpy from the Python libraray.
+
+Step 2:
+Get the matrix input from the user.
+
+Step 3:
+Calculate the variable using libraries.
+
+Step 4:
+Print the result.
+
+Step 5:
+End the program.
 
 ## Program:
 ```
-/*
 Program to find the solution of a matrix using Gaussian Elimination.
-Developed by: 
-RegisterNumber: 
-*/
+Developed by: Aakashraj M
+RegisterNumber: 22008579
+
+import numpy as np
+n=int(input())
+ar=np.zeros((n,n+1))
+x=np.zeros(n)
+for i in range(n):
+    for j in range(n+1):
+        ar[i][j]=int(input())
+for i in range(n):
+    for j in range(i+1,n):
+        ratio=ar[j][i]/ar[i][i]
+        for k in range(n+1):
+            ar[j][k]=ar[j][k]-ratio*ar[i][k]
+x[n-1]=ar[n-1][n]/ar[n-1][n-1]
+for i in range(n-2,-1,-1):
+    x[i]=ar[i][n]
+    for j in range(i+1,n):
+        x[i]=x[i]-ar[i][j]*x[j]
+    x[i]=x[i]/ar[i][i]
+for i in range(n):
+    print("X%d = %0.2f"%(i,x[i]),end=" ")
 ```
 
 ## Output:
-![gaussian elimination]()
+![image](https://user-images.githubusercontent.com/121117266/212526371-397156d4-4182-4f78-87a2-df95e7a86238.png)
+
 
 
 ## Result:
